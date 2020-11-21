@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Module.WeddingManagement.ApplicationModel" />
         <module name="Module.WeddingManagement.Contract" />
+        <module name="Module.WeddingManagement.Repository" />
       </profile>
     </annotationProcessing>
   </component>
