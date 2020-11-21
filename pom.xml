@@ -13,6 +13,7 @@
         <module>Module.WeddingManagement.Contract</module>
         <module>Module.WeddingManagement.Repository</module>
         <module>Module.WeddingManagement.UseCase</module>
+        <module>Module.WeddingManagement.Web</module>
     </modules>
 
 

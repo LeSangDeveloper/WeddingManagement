@@ -9,6 +9,7 @@
         <module name="Module.WeddingManagement.Contract" />
         <module name="Module.WeddingManagement.Repository" />
         <module name="Module.WeddingManagement.ApplicationModel" />
+        <module name="Module.WeddingManagement.Web" />
         <module name="Module.WeddingManagement.UseCase" />
       </profile>
     </annotationProcessing>
