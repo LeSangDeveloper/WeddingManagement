@@ -9,7 +9,17 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.sangkyo</groupId>
     <artifactId>Module.WeddingManagement.Contract</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sangkyo</groupId>
+            <artifactId>Module.WeddingManagement.ApplicationModel</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
