@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>WeddingManagement</artifactId>
+        <groupId>com.sangkyo</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sangkyo</groupId>
+    <artifactId>Module.WeddingManagement.ApplicationModel</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+
+    <properties>
+        <!-- https://maven.apache.org/general.html#encoding-warning -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <junit.version>5.3.1</junit.version>
+        <spring.version>5.1.0.RELEASE</spring.version>
+    </properties>
+
+</project>
