@@ -12,6 +12,7 @@
         <module>Module.WeddingManagement.ApplicationModel</module>
         <module>Module.WeddingManagement.Contract</module>
         <module>Module.WeddingManagement.Repository</module>
+        <module>Module.WeddingManagement.UseCase</module>
     </modules>
 
 

@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Module.WeddingManagement.ApplicationModel" />
         <module name="Module.WeddingManagement.Contract" />
         <module name="Module.WeddingManagement.Repository" />
+        <module name="Module.WeddingManagement.ApplicationModel" />
+        <module name="Module.WeddingManagement.UseCase" />
       </profile>
     </annotationProcessing>
   </component>
