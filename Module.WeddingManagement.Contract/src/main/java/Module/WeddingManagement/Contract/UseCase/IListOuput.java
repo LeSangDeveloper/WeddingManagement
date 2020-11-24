@@ -2,6 +2,6 @@ package Module.WeddingManagement.Contract.UseCase;
 
 import java.util.List;
 
-public interface ListItemsOutput <T> {
+public interface IListOuput<T> {
     void OnResponse(List<T> items);
 }

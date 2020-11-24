@@ -1,6 +1,6 @@
 package Module.WeddingManagement.Contract.UseCase;
 
-public interface CreateOrUpdate <T> {
+public interface ICreateOrUpdate<T> {
     void CreateOrUpdate(T item);
     void SetItemRepository(T item);
 }
