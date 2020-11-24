@@ -6,6 +6,11 @@ public class Customer extends AbstractModel {
     private String phone;
     private String address;
 
+    public Customer()
+    {
+        new Customer("", "", "");
+    }
+
     public Customer(String name, String phone, String address) {
         this.name = name;
         this.phone = phone;
