@@ -3,5 +3,13 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Module.WeddingManagement.ApplicationModel/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Module.WeddingManagement.ApplicationModel/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Module.WeddingManagement.Contract/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Module.WeddingManagement.Contract/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Module.WeddingManagement.Repository/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Module.WeddingManagement.Repository/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Module.WeddingManagement.UseCase/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Module.WeddingManagement.UseCase/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>
