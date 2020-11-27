@@ -12,6 +12,18 @@ public class CustomerEntity {
     public static final String QUERY_FIND_ALL_CUSTOMERS = "CustomerEntity.FindAll";
     public static final String QUERY_FIND_BY_ID = "ItemEntity.FindById";
 
+    public CustomerEntity()
+    {
+
+    }
+
+    public CustomerEntity(int customerId, String name, String phone, String address) {
+        this.customerId = customerId;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int customerId;
