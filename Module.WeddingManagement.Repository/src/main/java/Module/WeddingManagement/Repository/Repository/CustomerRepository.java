@@ -4,13 +4,13 @@ import javax.inject.Inject;
 import javax.persistence.*;
 
 import Module.WeddingManagement.ApplicationModel.Customer;
-import Module.WeddingManagement.Contract.Repository.ICustomRepository;
+import Module.WeddingManagement.Contract.Repository.ICustomerRepository;
 import Module.WeddingManagement.Repository.Entity.CustomerEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerRepository implements ICustomRepository {
+public class CustomerRepository implements ICustomerRepository {
 
     @Inject
     private EntityManager entityManager;
@@ -28,10 +28,7 @@ public class CustomerRepository implements ICustomRepository {
 
     private Customer toCustomer(CustomerEntity customerEntity)
     {
-        Customer result = new Customer("","","");
-        result.setAddress(customerEntity.getAddress());
-        result.setName(customerEntity.getName());
-        result.setPhone(customerEntity.getPhone());
+        Customer result = new Customer(customerEntity.getName(),customerEntity.getPhone(),customerEntity.getAddress());
         return result;
     }
 
@@ -51,10 +48,7 @@ public class CustomerRepository implements ICustomRepository {
 
     @Override
     public void Persist(Customer customer) {
-        CustomerEntity customerEntity = new CustomerEntity();
-        customerEntity.setAddress(customer.getAddress());
-        customerEntity.setName(customer.getName());
-        customerEntity.setPhone(customer.getPhone());
+        CustomerEntity customerEntity = new CustomerEntity(customer.getCustomerId(), customer.getName(), customer.getPhone(), customer.getAddress());
         entityManager.persist(customerEntity);
     }
 

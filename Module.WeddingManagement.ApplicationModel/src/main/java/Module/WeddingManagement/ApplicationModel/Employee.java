@@ -15,7 +15,7 @@ public class Employee extends AbstractModel {
         this.password = password;
     }
 
-    public int GetEmployeeId()
+    public int getEmployeeId()
     {
         return this.employeeId;
     }

@@ -22,6 +22,14 @@ public class EmployeeEntity {
     private String userName;
     private String password;
 
+    public EmployeeEntity(int employeeId, String title, String fullName, String userName, String password) {
+        this.employeeId = employeeId;
+        this.title = title;
+        this.fullName = fullName;
+        this.userName = userName;
+        this.password = password;
+    }
+
     public int getEmployeeId() {
         return employeeId;
     }
