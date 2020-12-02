@@ -1,22 +1,20 @@
 package Module.WeddingManagement.ApplicationModel;
 
+import java.util.Set;
+
 public class Food extends AbstractModel {
 
-    private int foodId;
     private String name;
     private double price;
     private String note;
     private FoodType type;
+    private Set<Menu> inMenus;
 
     public Food(String name, double price, String note, FoodType type) {
         this.name = name;
         this.price = price;
         this.note = note;
         this.type = type;
-    }
-
-    public int getFoodId() {
-        return foodId;
     }
 
     public String getName() {

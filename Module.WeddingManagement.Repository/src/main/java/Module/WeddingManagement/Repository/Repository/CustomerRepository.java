@@ -48,7 +48,7 @@ public class CustomerRepository implements ICustomerRepository {
 
     @Override
     public void Persist(Customer customer) {
-        CustomerEntity customerEntity = new CustomerEntity(customer.getCustomerId(), customer.getName(), customer.getPhone(), customer.getAddress());
+        CustomerEntity customerEntity = new CustomerEntity(customer.getName(), customer.getPhone(), customer.getAddress());
         entityManager.persist(customerEntity);
     }
 

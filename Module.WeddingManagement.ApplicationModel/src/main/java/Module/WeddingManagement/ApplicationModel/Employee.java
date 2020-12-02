@@ -2,7 +2,6 @@ package Module.WeddingManagement.ApplicationModel;
 
 public class Employee extends AbstractModel {
 
-    private int employeeId;
     private String title;
     private String fullName;
     private String username;
@@ -13,11 +12,6 @@ public class Employee extends AbstractModel {
         this.fullName = fullName;
         this.username = username;
         this.password = password;
-    }
-
-    public int getEmployeeId()
-    {
-        return this.employeeId;
     }
 
     public String getTitle()

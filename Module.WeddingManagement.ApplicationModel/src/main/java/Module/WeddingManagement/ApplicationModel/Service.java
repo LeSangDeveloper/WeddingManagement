@@ -1,7 +1,7 @@
 package Module.WeddingManagement.ApplicationModel;
 
 public class Service extends AbstractModel {
-    private int serviceId;
+
     private double price;
     private String note;
     private String type;
@@ -10,10 +10,6 @@ public class Service extends AbstractModel {
         this.price = price;
         this.note = note;
         this.type = type;
-    }
-
-    public int getServiceId() {
-        return serviceId;
     }
 
     public double getPrice() {

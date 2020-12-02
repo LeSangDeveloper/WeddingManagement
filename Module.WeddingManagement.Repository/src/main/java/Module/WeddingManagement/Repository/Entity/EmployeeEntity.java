@@ -14,15 +14,21 @@ public class EmployeeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int employeeId;
+    private long employeeId;
 
     @Basic
     private String title;
+
+    @Basic
     private String fullName;
+
+    @Basic
     private String userName;
+
+    @Basic
     private String password;
 
-    public EmployeeEntity(int employeeId, String title, String fullName, String userName, String password) {
+    public EmployeeEntity(long employeeId, String title, String fullName, String userName, String password) {
         this.employeeId = employeeId;
         this.title = title;
         this.fullName = fullName;
@@ -30,7 +36,14 @@ public class EmployeeEntity {
         this.password = password;
     }
 
-    public int getEmployeeId() {
+    public EmployeeEntity(String title, String fullName, String userName, String password) {
+        this.title = title;
+        this.fullName = fullName;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public long getEmployeeId() {
         return employeeId;
     }
 

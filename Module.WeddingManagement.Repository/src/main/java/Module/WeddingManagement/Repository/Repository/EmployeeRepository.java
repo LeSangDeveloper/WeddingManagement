@@ -48,7 +48,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public void Persist(Employee employee) {
-        EmployeeEntity employeeEntity = new EmployeeEntity(employee.getEmployeeId(), employee.getTitle(), employee.getFullName(), employee.getUserName(), employee.getPassword());
+        EmployeeEntity employeeEntity = new EmployeeEntity(employee.getTitle(), employee.getFullName(), employee.getUserName(), employee.getPassword());
         entityManager.persist(employeeEntity);
     }
 

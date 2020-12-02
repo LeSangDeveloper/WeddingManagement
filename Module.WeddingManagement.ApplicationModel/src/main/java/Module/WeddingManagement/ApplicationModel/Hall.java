@@ -1,7 +1,7 @@
 package Module.WeddingManagement.ApplicationModel;
 
 public class Hall extends AbstractModel {
-    private int hallId;
+
     private String name;
     private double price;
     private HallType type;
@@ -12,10 +12,6 @@ public class Hall extends AbstractModel {
         this.price = price;
         this.type = type;
         this.note = note;
-    }
-
-    public int getHallId() {
-        return hallId;
     }
 
     public String getName() {
