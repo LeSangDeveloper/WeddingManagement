@@ -12,21 +12,9 @@ public class CustomerEntity {
     public static final String QUERY_FIND_ALL_CUSTOMERS = "CustomerEntity.FindAll";
     public static final String QUERY_FIND_BY_ID = "ItemEntity.FindById";
 
-    public CustomerEntity(long customerId, String name, String phone, String address)
-    {
-
-    }
-
-    public CustomerEntity(int customerId, String name, String phone, String address) {
-        this.customerId = customerId;
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int customerId;
+    private long customerId;
 
     @Basic
     private String name;
@@ -37,13 +25,7 @@ public class CustomerEntity {
     @Basic
     private String address;
 
-    public CustomerEntity(String name, String phone, String address) {
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
-    }
-
-    public int getCustomerId() {
+    public long getCustomerId() {
         return customerId;
     }
 

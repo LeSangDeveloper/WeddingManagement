@@ -28,26 +28,11 @@ public class EmployeeEntity {
     @Basic
     private String password;
 
-    public EmployeeEntity(long employeeId, String title, String fullName, String userName, String password) {
-        this.employeeId = employeeId;
-        this.title = title;
-        this.fullName = fullName;
-        this.userName = userName;
-        this.password = password;
-    }
-
-    public EmployeeEntity(String title, String fullName, String userName, String password) {
-        this.title = title;
-        this.fullName = fullName;
-        this.userName = userName;
-        this.password = password;
-    }
-
     public long getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(long employeeId) {
         this.employeeId = employeeId;
     }
 
