@@ -1,38 +1,48 @@
 package Module.WeddingManagement.Repository.Entity;
 
-import Module.WeddingManagement.ApplicationModel.Hall;
+import Module.WeddingManagement.ApplicationModel.Food;
+import Module.WeddingManagement.ApplicationModel.Menu;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "Halls")
+@Table(name = "Foods")
 @NamedQueries({
         @NamedQuery(name = HallEntity.QUERY_FIND_ALL_HALLS, query = "SELECT i from HallEntity i where i.hallId = :hallId"),
         @NamedQuery(name = HallEntity.QUERY_FIND_BY_ID, query =  "SELECT i from HallEntity i")
 })
-public class HallEntity {
+public class FoodEntity {
     public static final String QUERY_FIND_ALL_HALLS = "HallEntity.FindAll";
     public static final String QUERY_FIND_BY_ID = "HallEntity.FindById";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long hallId;
+    private long FoodId;
 
     @Basic
     private String name;
     @Basic
     private double price;
     @Basic
-    private Hall.HallType type;
-    @Basic
     private String note;
+    @Basic
+    private Food.FoodType type;
 
-    public long getHallId() {
-        return hallId;
+    @ManyToMany(mappedBy = "foods")
+    private List<MenuEntity> inMenus;
+
+    public List<MenuEntity> getInMenus() {
+        return inMenus;
     }
 
-    public void setHallId(long hallId) {
-        hallId = hallId;
+    public long getFoodId() {
+        return FoodId;
+    }
+
+    public void setFoodId(long foodId) {
+        FoodId = foodId;
     }
 
     public String getName() {
@@ -51,14 +61,6 @@ public class HallEntity {
         this.price = price;
     }
 
-    public Hall.HallType getType() {
-        return type;
-    }
-
-    public void setType(Hall.HallType type) {
-        this.type = type;
-    }
-
     public String getNote() {
         return note;
     }
@@ -66,4 +68,13 @@ public class HallEntity {
     public void setNote(String note) {
         this.note = note;
     }
+
+    public Food.FoodType getType() {
+        return type;
+    }
+
+    public void setType(Food.FoodType type) {
+        this.type = type;
+    }
+
 }

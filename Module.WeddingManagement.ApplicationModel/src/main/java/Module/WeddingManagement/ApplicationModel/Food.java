@@ -8,7 +8,6 @@ public class Food extends AbstractModel {
     private double price;
     private String note;
     private FoodType type;
-    private Set<Menu> inMenus;
 
     public Food(String name, double price, String note, FoodType type) {
         this.name = name;
