@@ -1,10 +1,15 @@
 package Module.WeddingManagement.Repository.Repository;
 
 import Module.WeddingManagement.ApplicationModel.Employee;
+import Module.WeddingManagement.ApplicationModel.Food;
 import Module.WeddingManagement.ApplicationModel.Hall;
 import Module.WeddingManagement.Contract.Repository.IHallRepository;
 import Module.WeddingManagement.Repository.Entity.EmployeeEntity;
+import Module.WeddingManagement.Repository.Entity.FoodEntity;
 import Module.WeddingManagement.Repository.Entity.HallEntity;
+import Module.WeddingManagement.Repository.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -18,33 +23,34 @@ public class HallRepository implements IHallRepository {
 
     @Override
     public Hall Find(int id) {
-        List<HallEntity> list = entityManager.createNamedQuery(HallEntity.QUERY_FIND_BY_ID, HallEntity.class)
-                .setParameter("employeeId", id).getResultList();
-        if (list.isEmpty())
-            return null;
-
-        HallEntity HallEntity = list.get(0);
-        return  toHall(HallEntity);
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            HallEntity hallEntity = session.get(HallEntity.class, id);
+            return toHall(hallEntity);
+        }
     }
 
     private Hall toHall(HallEntity entity)
     {
-        Hall hall = new Hall(entity.getName(), entity.getPrice(), entity.getType(), entity.getNote());
+        Hall hall = new Hall(entity.getHallId(), entity.getName(), entity.getPrice(), entity.getType(), entity.getNote());
         return hall;
     }
 
     @Override
     public List<Hall> FindAll() {
-        List<HallEntity> list = entityManager.createNamedQuery(HallEntity.QUERY_FIND_BY_ID, HallEntity.class)
-                .getResultList();
-        if (list.isEmpty())
-            return null;
-        List<Hall> result = new ArrayList<>();
-        for (HallEntity i : list)
+        try (Session session = HibernateUtil.getSessionFactory().openSession())
         {
-            result.add(toHall(i));
+            Query<HallEntity> query = session.createQuery("FROM HallEntity");
+            List<HallEntity> list= query.list();
+
+            if (list.isEmpty())
+                return null;
+            List<Hall> result = new ArrayList<>();
+            for (HallEntity i : list)
+            {
+                result.add(toHall(i));
+            }
+            return result;
         }
-        return result;
     }
 
     @Override

@@ -1,20 +1,15 @@
 package Module.WeddingManagement.Repository.Entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "Customers")
-@NamedQueries({
-    @NamedQuery(name = CustomerEntity.QUERY_FIND_BY_ID, query = "SELECT i from CustomerEntity i where i.customerId = :customerId"),
-        @NamedQuery(name = CustomerEntity.QUERY_FIND_ALL_CUSTOMERS, query = "SELECT i from CustomerEntity i")
-})
-public class CustomerEntity {
-    public static final String QUERY_FIND_ALL_CUSTOMERS = "CustomerEntity.FindAll";
-    public static final String QUERY_FIND_BY_ID = "ItemEntity.FindById";
+@Table(name = "customer")
+public class CustomerEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long customerId;
+    private int id;
 
     @Basic
     private String name;
@@ -25,12 +20,12 @@ public class CustomerEntity {
     @Basic
     private String address;
 
-    public long getCustomerId() {
-        return customerId;
+    public int getCustomerId() {
+        return id;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setCustomerId(int id) {
+        this.id = id;
     }
 
     public String getName() {

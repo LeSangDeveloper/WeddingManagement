@@ -2,19 +2,29 @@ package Module.WeddingManagement.ApplicationModel;
 
 public class Customer extends AbstractModel {
 
+    private int id;
     private String name;
     private String phone;
     private String address;
 
     public Customer()
     {
-        new Customer("", "", "");
+        new Customer(0, "", "", "");
     }
 
-    public Customer(String name, String phone, String address) {
+    public Customer(int id, String name, String phone, String address) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.address = address;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

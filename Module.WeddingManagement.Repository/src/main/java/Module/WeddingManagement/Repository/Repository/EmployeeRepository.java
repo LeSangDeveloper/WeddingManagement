@@ -1,11 +1,14 @@
 package Module.WeddingManagement.Repository.Repository;
 
 import javax.inject.Inject;
-import javax.persistence.*;
+import javax.persistence.EntityManager;
 
 import Module.WeddingManagement.ApplicationModel.Employee;
 import Module.WeddingManagement.Contract.Repository.IEmployeeRepository;
 import Module.WeddingManagement.Repository.Entity.EmployeeEntity;
+import Module.WeddingManagement.Repository.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,33 +20,35 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public Employee Find(int id) {
-        List<EmployeeEntity> list = entityManager.createNamedQuery(EmployeeEntity.QUERY_FIND_BY_ID, EmployeeEntity.class)
-                .setParameter("employeeId", id).getResultList();
-        if (list.isEmpty())
-            return null;
-
-        EmployeeEntity employeeEntity = list.get(0);
-        return  toEmployee(employeeEntity);
+        try (Session session = HibernateUtil.getSessionFactory().openSession())
+        {
+            EmployeeEntity employeeEntity = session.get(EmployeeEntity.class, id);
+            return toEmployee(employeeEntity);
+        }
     }
 
     private Employee toEmployee(EmployeeEntity employeeEntity)
     {
-        Employee result = new Employee(employeeEntity.getTitle(), employeeEntity.getFullName(), employeeEntity.getUserName(), employeeEntity.getPassword());
+        Employee result = new Employee(employeeEntity.getEmployeeId(), employeeEntity.getTitle(), employeeEntity.getFullName(), employeeEntity.getUserName(), employeeEntity.getPassword());
         return result;
     }
 
     @Override
     public List<Employee> FindAll() {
-        List<EmployeeEntity> list = entityManager.createNamedQuery(EmployeeEntity.QUERY_FIND_BY_ID, EmployeeEntity.class)
-                .getResultList();
-        if (list.isEmpty())
-            return null;
-        List<Employee> result = new ArrayList<>();
-        for (EmployeeEntity i : list)
+        try (Session session = HibernateUtil.getSessionFactory().openSession())
         {
-            result.add(toEmployee(i));
+            Query<EmployeeEntity> query = session.createQuery("FROM EmployeeEntity");
+            List<EmployeeEntity> list= query.list();
+
+            if (list.isEmpty())
+                return null;
+            List<Employee> result = new ArrayList<>();
+            for (EmployeeEntity i : list)
+            {
+                result.add(toEmployee(i));
+            }
+            return result;
         }
-        return result;
     }
 
     @Override

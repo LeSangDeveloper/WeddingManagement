@@ -2,12 +2,14 @@ package Module.WeddingManagement.ApplicationModel;
 
 public class Hall extends AbstractModel {
 
+    private int id;
     private String name;
     private double price;
     private HallType type;
     private String note;
 
-    public Hall(String name, double price, HallType type, String note) {
+    public Hall(int id, String name, double price, HallType type, String note) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.type = type;

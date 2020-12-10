@@ -3,7 +3,7 @@ package Module.WeddingManagement.Repository.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Employees")
+@Table(name = "employee")
 @NamedQueries({
     @NamedQuery(name = EmployeeEntity.QUERY_FIND_ALL_EMPLOYEES, query = "SELECT i from EmployeeEntity i where i.employeeId = :employeeId"),
         @NamedQuery(name = EmployeeEntity.QUERY_FIND_BY_ID, query =  "SELECT i from EmployeeEntity i")
@@ -14,7 +14,7 @@ public class EmployeeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long employeeId;
+    private int id;
 
     @Basic
     private String title;
@@ -28,12 +28,12 @@ public class EmployeeEntity {
     @Basic
     private String password;
 
-    public long getEmployeeId() {
-        return employeeId;
+    public int getEmployeeId() {
+        return id;
     }
 
-    public void setEmployeeId(long employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployeeId(int employeeId) {
+        id = employeeId;
     }
 
     public String getTitle() {

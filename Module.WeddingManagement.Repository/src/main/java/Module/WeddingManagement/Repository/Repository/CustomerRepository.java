@@ -1,11 +1,14 @@
 package Module.WeddingManagement.Repository.Repository;
 
 import javax.inject.Inject;
-import javax.persistence.*;
+import javax.persistence.EntityManager;
 
 import Module.WeddingManagement.ApplicationModel.Customer;
 import Module.WeddingManagement.Contract.Repository.ICustomerRepository;
 import Module.WeddingManagement.Repository.Entity.CustomerEntity;
+import Module.WeddingManagement.Repository.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,33 +20,34 @@ public class CustomerRepository implements ICustomerRepository {
 
     @Override
     public Customer Find(int id) {
-        List<CustomerEntity> list = entityManager.createNamedQuery(CustomerEntity.QUERY_FIND_BY_ID, CustomerEntity.class)
-                .setParameter("customerId", id).getResultList();
-        if (list.isEmpty())
-            return null;
-
-        CustomerEntity customerEntity = list.get(0);
-        return  toCustomer(customerEntity);
+        try (Session session = HibernateUtil.getSessionFactory().openSession())
+        {
+            CustomerEntity customerEntity = session.get(CustomerEntity.class, id);
+            return toCustomer(customerEntity);
+        }
     }
 
     private Customer toCustomer(CustomerEntity customerEntity)
     {
-        Customer result = new Customer(customerEntity.getName(),customerEntity.getPhone(),customerEntity.getAddress());
+        Customer result = new Customer(customerEntity.getCustomerId(), customerEntity.getName(),customerEntity.getPhone(),customerEntity.getAddress());
         return result;
     }
 
     @Override
     public List<Customer> FindAll() {
-        List<CustomerEntity> list = entityManager.createNamedQuery(CustomerEntity.QUERY_FIND_BY_ID, CustomerEntity.class)
-                .getResultList();
-        if (list.isEmpty())
-            return null;
-        List<Customer> result = new ArrayList<>();
-        for (CustomerEntity i : list)
+        try (Session session = HibernateUtil.getSessionFactory().openSession())
         {
-            result.add(toCustomer(i));
+            Query<CustomerEntity> query = session.createQuery("FROM CustomerEntity");
+            List<CustomerEntity> customerEntities = query.list();
+            if (customerEntities.isEmpty())
+                return null;
+            List<Customer> result = new ArrayList<>();
+            for (CustomerEntity i : customerEntities)
+            {
+                result.add(toCustomer(i));
+            }
+            return  result;
         }
-        return result;
     }
 
     @Override

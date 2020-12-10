@@ -4,27 +4,24 @@ import Module.WeddingManagement.ApplicationModel.Food;
 import Module.WeddingManagement.ApplicationModel.Menu;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "Foods")
-@NamedQueries({
-        @NamedQuery(name = HallEntity.QUERY_FIND_ALL_HALLS, query = "SELECT i from HallEntity i where i.hallId = :hallId"),
-        @NamedQuery(name = HallEntity.QUERY_FIND_BY_ID, query =  "SELECT i from HallEntity i")
-})
+@Table(name = "food")
 public class FoodEntity {
     public static final String QUERY_FIND_ALL_HALLS = "HallEntity.FindAll";
     public static final String QUERY_FIND_BY_ID = "HallEntity.FindById";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long FoodId;
+    private int id;
 
     @Basic
     private String name;
     @Basic
-    private double price;
+    private BigDecimal price;
     @Basic
     private String note;
     @Basic
@@ -37,12 +34,12 @@ public class FoodEntity {
         return inMenus;
     }
 
-    public long getFoodId() {
-        return FoodId;
+    public int getFoodId() {
+        return id;
     }
 
-    public void setFoodId(long foodId) {
-        FoodId = foodId;
+    public void setFoodId(int foodId) {
+        id = foodId;
     }
 
     public String getName() {
@@ -53,11 +50,11 @@ public class FoodEntity {
         this.name = name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

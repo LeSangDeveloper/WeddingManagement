@@ -6,11 +6,19 @@ import java.util.List;
 
 public class Menu extends AbstractModel {
 
+    private int id;
     private Date createdAt;
     private List<Food> foods;
 
-    public Menu(Date createdAt) {
+    public Menu(int id, Date createdAt) {
+        this.id = id;
         this.createdAt = createdAt;
+    }
+
+    public Menu(int id, Date createdAt, List<Food> foods) {
+        this.id = id;
+        this.createdAt = createdAt;
+        this.foods = foods;
     }
 
     public List<Food> getFoods() {

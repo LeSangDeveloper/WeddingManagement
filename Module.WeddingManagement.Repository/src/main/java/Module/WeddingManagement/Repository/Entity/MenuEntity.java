@@ -3,28 +3,26 @@ package Module.WeddingManagement.Repository.Entity;
 import Module.WeddingManagement.ApplicationModel.Menu;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="Menus")
-public class MenuEntity {
+@Table(name="menu")
+public class MenuEntity implements Serializable {
     public static final String QUERY_FIND_ALL_HALLS = "HallEntity.FindAll";
     public static final String QUERY_FIND_BY_ID = "HallEntity.FindById";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long menuId;
+    private int id;
 
     @Basic
     private Date createdAt;
 
-    @ManyToMany(cascade = {
-            CascadeType.MERGE,
-            CascadeType.PERSIST
-    })
+    @ManyToMany
     @JoinTable(
         name = "menu_food",
             joinColumns = {
@@ -35,6 +33,14 @@ public class MenuEntity {
             }
     )
     private List<FoodEntity> foods;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void AddFood(FoodEntity food)
     {

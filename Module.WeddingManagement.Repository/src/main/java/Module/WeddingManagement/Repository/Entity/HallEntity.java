@@ -3,20 +3,17 @@ package Module.WeddingManagement.Repository.Entity;
 import Module.WeddingManagement.ApplicationModel.Hall;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "Halls")
-@NamedQueries({
-        @NamedQuery(name = HallEntity.QUERY_FIND_ALL_HALLS, query = "SELECT i from HallEntity i where i.hallId = :hallId"),
-        @NamedQuery(name = HallEntity.QUERY_FIND_BY_ID, query =  "SELECT i from HallEntity i")
-})
-public class HallEntity {
+@Table(name = "hall")
+public class HallEntity implements Serializable {
     public static final String QUERY_FIND_ALL_HALLS = "HallEntity.FindAll";
     public static final String QUERY_FIND_BY_ID = "HallEntity.FindById";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long hallId;
+    private int id;
 
     @Basic
     private String name;
@@ -27,12 +24,12 @@ public class HallEntity {
     @Basic
     private String note;
 
-    public long getHallId() {
-        return hallId;
+    public int getHallId() {
+        return id;
     }
 
-    public void setHallId(long hallId) {
-        hallId = hallId;
+    public void setHallId(int hallId) {
+        id = hallId;
     }
 
     public String getName() {
