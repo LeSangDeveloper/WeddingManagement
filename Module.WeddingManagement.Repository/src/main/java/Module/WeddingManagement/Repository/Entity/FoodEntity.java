@@ -1,6 +1,7 @@
 package Module.WeddingManagement.Repository.Entity;
 
 import Module.WeddingManagement.ApplicationModel.Food;
+import Module.WeddingManagement.ApplicationModel.FoodType;
 import Module.WeddingManagement.ApplicationModel.Menu;
 
 import javax.persistence.*;
@@ -25,7 +26,7 @@ public class FoodEntity {
     @Basic
     private String note;
     @Basic
-    private Food.FoodType type;
+    private FoodType type;
 
     @ManyToMany(mappedBy = "foods")
     private List<MenuEntity> inMenus;
@@ -66,11 +67,11 @@ public class FoodEntity {
         this.note = note;
     }
 
-    public Food.FoodType getType() {
+    public FoodType getType() {
         return type;
     }
 
-    public void setType(Food.FoodType type) {
+    public void setType(FoodType type) {
         this.type = type;
     }
 

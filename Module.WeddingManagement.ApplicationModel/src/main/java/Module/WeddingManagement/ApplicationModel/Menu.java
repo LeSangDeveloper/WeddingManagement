@@ -10,15 +10,15 @@ public class Menu extends AbstractModel {
     private Date createdAt;
     private List<Food> foods;
 
-    public Menu(int id, Date createdAt) {
-        this.id = id;
-        this.createdAt = createdAt;
+    public Menu() {
     }
 
-    public Menu(int id, Date createdAt, List<Food> foods) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
-        this.createdAt = createdAt;
-        this.foods = foods;
     }
 
     public List<Food> getFoods() {

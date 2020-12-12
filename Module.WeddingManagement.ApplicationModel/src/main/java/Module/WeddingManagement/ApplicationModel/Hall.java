@@ -8,12 +8,24 @@ public class Hall extends AbstractModel {
     private HallType type;
     private String note;
 
+    public Hall() {
+
+    }
+
     public Hall(int id, String name, double price, HallType type, String note) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.type = type;
         this.note = note;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -46,15 +58,6 @@ public class Hall extends AbstractModel {
 
     public void setNote(String note) {
         this.note = note;
-    }
-
-    public enum HallType
-    {
-        A,
-        B,
-        C,
-        D,
-        E
     }
 
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Module.WeddingManagement.ApplicationModel.Food" table="food">
+        <meta attribute="class-description">Food Info</meta>
+        <id column="id" name="id" type="int"/>
+        <property column="name" name="name" type="string"/>
+        <property column="price" name="price" type="big_decimal"/>
+        <property column="note" name="note" type="string"/>
+        <property column="type" name="type">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">Module.WeddingManagement.ApplicationModel.FoodType</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>

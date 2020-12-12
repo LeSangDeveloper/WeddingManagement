@@ -11,6 +11,10 @@ public class Food extends AbstractModel {
     private String note;
     private FoodType type;
 
+    public Food(){
+
+    }
+
     public Food(int id, String name, BigDecimal price, String note, FoodType type) {
         this.name = name;
         this.price = price;
@@ -58,13 +62,6 @@ public class Food extends AbstractModel {
         this.type = type;
     }
 
-    public enum FoodType
-    {
-        Appertizers,
-        Soup,
-        Salad,
-        Entree,
-        Dessert
-    }
-
 }
+
+

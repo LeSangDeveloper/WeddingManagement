@@ -1,6 +1,7 @@
 package Module.WeddingManagement.Repository.Entity;
 
 import Module.WeddingManagement.ApplicationModel.Hall;
+import Module.WeddingManagement.ApplicationModel.HallType;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,7 +21,7 @@ public class HallEntity implements Serializable {
     @Basic
     private double price;
     @Basic
-    private Hall.HallType type;
+    private HallType type;
     @Basic
     private String note;
 
@@ -48,11 +49,11 @@ public class HallEntity implements Serializable {
         this.price = price;
     }
 
-    public Hall.HallType getType() {
+    public HallType getType() {
         return type;
     }
 
-    public void setType(Hall.HallType type) {
+    public void setType(HallType type) {
         this.type = type;
     }
 

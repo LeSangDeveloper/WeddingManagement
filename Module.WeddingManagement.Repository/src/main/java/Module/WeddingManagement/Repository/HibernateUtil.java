@@ -14,15 +14,16 @@ public class HibernateUtil {
     static {
         Configuration conf = new Configuration();
 
-        Properties pros = new Properties();
-        pros.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
-        pros.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-        pros.put(Environment.URL, "jdbc:mysql://localhost:6603/TestHibernate");
-        pros.put(Environment.USER, "root");
-        pros.put(Environment.PASS, "123456");
+//        Properties pros = new Properties();
+//        pros.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
+//        pros.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
+//        pros.put(Environment.URL, "jdbc:mysql://localhost:6603/TestHibernate");
+//        pros.put(Environment.USER, "root");
+//        pros.put(Environment.PASS, "123456");
 
-        conf.setProperties(pros);
+//        conf.setProperties(pros);
 
+        conf.configure("hibernate.cfg.xml");
         ServiceRegistry registry =  new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
 
         FACTORY = conf.buildSessionFactory();

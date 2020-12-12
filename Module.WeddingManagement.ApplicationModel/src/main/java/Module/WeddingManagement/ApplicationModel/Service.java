@@ -1,22 +1,39 @@
 package Module.WeddingManagement.ApplicationModel;
 
+import java.math.BigDecimal;
+
 public class Service extends AbstractModel {
 
-    private double price;
+    private int id;
+    private BigDecimal price;
     private String note;
     private String type;
 
-    public Service(double price, String note, String type) {
+    public Service()
+    {
+
+    }
+
+    public Service(int id, BigDecimal price, String note, String type) {
+        this.id = id;
         this.price = price;
         this.note = note;
         this.type = type;
     }
 
-    public double getPrice() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

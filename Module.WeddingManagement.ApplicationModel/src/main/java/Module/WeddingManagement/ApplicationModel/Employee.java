@@ -8,12 +8,29 @@ public class Employee extends AbstractModel {
     private String username;
     private String password;
 
+    public Employee()
+    {
+
+    }
+
     public Employee(int id, String title, String fullName, String username, String password) {
         this.id = id;
         this.title = title;
         this.fullName = fullName;
         this.username = username;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public String getTitle()
