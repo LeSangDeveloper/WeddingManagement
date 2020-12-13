@@ -14,5 +14,6 @@
         <mapping resource="Hall.hbm.xml" />
         <mapping resource="Menu.hbm.xml" />
         <mapping resource="Service.hbm.xml" />
+        <mapping resource="Booking.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

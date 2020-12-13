@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Module.WeddingManagement.ApplicationModel.Booking" table="booking">
+        <meta attribute="class-description">Service Info</meta>
+        <id column="id" name="id" type="int"/>
+        <many-to-one column="customer_id" name="customer"
+                     not-null="true"
+                     class="Module.WeddingManagement.ApplicationModel.Customer" />
+        <many-to-one column="employee_id" name="employee"
+                     not-null="true"
+                     class="Module.WeddingManagement.ApplicationModel.Employee" />
+        <many-to-one column="menu_id" name="menu"
+                     not-null="true"
+                     class="Module.WeddingManagement.ApplicationModel.Menu" />
+        <many-to-one column="hall_id" name="hall"
+                     not-null="true"
+                     class="Module.WeddingManagement.ApplicationModel.Hall" />
+        <set name="services" cascade="save-update"
+             table="booking_service">
+            <key column="booking_id"/>
+            <many-to-many column="service_id" class="Module.WeddingManagement.ApplicationModel.Service"/>
+        </set>
+        <property column="createdat" name="createdAt" type="date" />
+        <property column="dateofpayment" name="dateOfPayment" type="date" />
+        <property column="tables" name="tables" />
+        <property column="shift" name="shift">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">Module.WeddingManagement.ApplicationModel.ShiftType</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        <property column="note" name="note" />
+        <property column="price" name="price"  type="big_decimal" />
+    </class>
+</hibernate-mapping>

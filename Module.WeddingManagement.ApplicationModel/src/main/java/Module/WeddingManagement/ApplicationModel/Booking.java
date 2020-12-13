@@ -129,12 +129,4 @@ public class Booking extends AbstractModel {
         this.price = price;
     }
 
-
-    public enum ShiftType
-    {
-        Morning,
-        Afternoon,
-        Evening
-    }
-
 }
