@@ -13,5 +13,6 @@
                 <param name="type">12</param>
             </type>
         </property>
+        <property name="tables" column="tables" type="int"/>
     </class>
 </hibernate-mapping>

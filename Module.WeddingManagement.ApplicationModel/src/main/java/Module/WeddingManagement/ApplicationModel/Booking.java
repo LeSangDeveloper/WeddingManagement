@@ -1,7 +1,9 @@
 package Module.WeddingManagement.ApplicationModel;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class Booking extends AbstractModel {
 
@@ -10,27 +12,15 @@ public class Booking extends AbstractModel {
     private Employee employee;
     private Menu menu;
     private Hall hall;
-    private List<Service> services;
+    private Set<Service> services;
     private Date createdAt;
-    private Date dateOfPayment;
     private int tables;
     private ShiftType shift;
     private String note;
-    private double price;
+    private BigDecimal price;
 
-    public Booking(int id, Customer customer, Employee employee, Menu menu, Hall hall, List<Service> services, Date createdAt, Date dateOfPayment, int tables, ShiftType shift, String note, double price) {
-        this.id = id;
-        this.customer = customer;
-        this.employee = employee;
-        this.menu = menu;
-        this.hall = hall;
-        this.services = services;
-        this.createdAt = createdAt;
-        this.dateOfPayment = dateOfPayment;
-        this.tables = tables;
-        this.shift = shift;
-        this.note = note;
-        this.price = price;
+    public Booking() {
+
     }
 
     public int getId() {
@@ -73,11 +63,11 @@ public class Booking extends AbstractModel {
         this.hall = hall;
     }
 
-    public List<Service> getServices() {
+    public Set<Service> getServices() {
         return services;
     }
 
-    public void setServices(List<Service> services) {
+    public void setServices(Set<Service> services) {
         this.services = services;
     }
 
@@ -87,14 +77,6 @@ public class Booking extends AbstractModel {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public Date getDateOfPayment() {
-        return dateOfPayment;
-    }
-
-    public void setDateOfPayment(Date dateOfPayment) {
-        this.dateOfPayment = dateOfPayment;
     }
 
     public int getTables() {
@@ -121,11 +103,11 @@ public class Booking extends AbstractModel {
         this.note = note;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

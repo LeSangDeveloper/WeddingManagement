@@ -3,12 +3,13 @@ package Module.WeddingManagement.ApplicationModel;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class Menu extends AbstractModel {
 
     private int id;
     private Date createdAt;
-    private List<Food> foods;
+    private Set<Food> foods;
 
     public Menu() {
     }
@@ -21,11 +22,11 @@ public class Menu extends AbstractModel {
         this.id = id;
     }
 
-    public List<Food> getFoods() {
+    public Set<Food> getFoods() {
         return foods;
     }
 
-    public void setFoods(List<Food> foods) {
+    public void setFoods(Set<Food> foods) {
         this.foods = foods;
     }
 

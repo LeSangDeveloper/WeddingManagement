@@ -16,13 +16,11 @@
         <many-to-one column="hall_id" name="hall"
                      not-null="true"
                      class="Module.WeddingManagement.ApplicationModel.Hall" />
-        <set name="services" cascade="save-update"
-             table="booking_service">
+        <set name="services" table="booking_service" inverse="false" lazy="false" fetch="select"  cascade="all">
             <key column="booking_id"/>
             <many-to-many column="service_id" class="Module.WeddingManagement.ApplicationModel.Service"/>
         </set>
         <property column="createdat" name="createdAt" type="date" />
-        <property column="dateofpayment" name="dateOfPayment" type="date" />
         <property column="tables" name="tables" />
         <property column="shift" name="shift">
             <type name="org.hibernate.type.EnumType">

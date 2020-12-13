@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Module.WeddingManagement.ApplicationModel.Order" table="_order">
+        <meta attribute="class-description">Order Info</meta>
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="foreign">
+                <param name="property">booking</param>
+            </generator>
+        </id>
+        <one-to-one name="booking"
+                    class="Module.WeddingManagement.ApplicationModel.Booking"
+                    constrained="true"/>
+        <property column="createdat" name="createdAt" type="date"/>
+        <property column="cash" name="cash"  type="big_decimal" />
+    </class>
+</hibernate-mapping>

@@ -5,7 +5,7 @@
         <meta attribute="class-description">Food Info</meta>
         <id column="id" name="id" type="int"/>
         <property column="createdat" name="createdAt" type="date"/>
-        <set name="foods" cascade="save-update" table="menu_food">
+        <set name="foods" table="menu_food" inverse="false" lazy="false" fetch="select"  cascade="all">
             <key column="menu_id" />
             <many-to-many column="food_id" class="Module.WeddingManagement.ApplicationModel.Food"/>
         </set>

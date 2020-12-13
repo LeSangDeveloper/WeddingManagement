@@ -1,23 +1,18 @@
 package Module.WeddingManagement.ApplicationModel;
 
+import java.math.BigDecimal;
+
 public class Hall extends AbstractModel {
 
     private int id;
     private String name;
-    private double price;
+    private BigDecimal price;
     private HallType type;
     private String note;
+    private int tables;
 
     public Hall() {
 
-    }
-
-    public Hall(int id, String name, double price, HallType type, String note) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.type = type;
-        this.note = note;
     }
 
     public int getId() {
@@ -36,11 +31,11 @@ public class Hall extends AbstractModel {
         this.name = name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -60,4 +55,13 @@ public class Hall extends AbstractModel {
         this.note = note;
     }
 
+
+
+    public int getTables() {
+        return tables;
+    }
+
+    public void setTables(int tables) {
+        this.tables = tables;
+    }
 }

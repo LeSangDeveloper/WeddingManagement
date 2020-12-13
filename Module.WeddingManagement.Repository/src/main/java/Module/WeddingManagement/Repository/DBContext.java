@@ -11,10 +11,17 @@ public class DBContext {
     private static RepositoryGeneric<Hall> halls;
     private static RepositoryGeneric<Menu> menus;
     private static RepositoryGeneric<Service> services;
+    private static RepositoryGeneric<Order> orders;
 
     static {
         customers = new RepositoryGeneric<Customer>(Customer.class);
         employees = new RepositoryGeneric<Employee>(Employee.class);
+        bookings = new RepositoryGeneric<Booking>(Booking.class);
+        foods = new RepositoryGeneric<Food>(Food.class);
+        halls = new RepositoryGeneric<Hall>(Hall.class);
+        menus = new RepositoryGeneric<Menu>(Menu.class);
+        services = new RepositoryGeneric<Service>(Service.class);
+        orders = new RepositoryGeneric<Order>(Order.class);
     }
 
     public static RepositoryGeneric<Customer> getCustomers() {
