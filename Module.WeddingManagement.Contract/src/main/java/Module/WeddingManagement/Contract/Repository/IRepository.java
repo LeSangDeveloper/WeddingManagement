@@ -7,5 +7,9 @@ public interface IRepository<T> {
 
     List<T> FindAll();
 
+    T Add(T entity);
+
+    T Update(int id, T entity);
+
     void Persist(T t);
 }
