@@ -6,21 +6,22 @@
         <id column="id" name="id" type="int"/>
         <many-to-one column="customer_id" name="customer"
                      not-null="true"
-                     class="Module.WeddingManagement.ApplicationModel.Customer" />
+                     class="Module.WeddingManagement.ApplicationModel.Customer" lazy="false"/>
         <many-to-one column="employee_id" name="employee"
                      not-null="true"
-                     class="Module.WeddingManagement.ApplicationModel.Employee" />
+                     class="Module.WeddingManagement.ApplicationModel.Employee" lazy="false"/>
         <many-to-one column="menu_id" name="menu"
                      not-null="true"
-                     class="Module.WeddingManagement.ApplicationModel.Menu" />
+                     class="Module.WeddingManagement.ApplicationModel.Menu" lazy="false"/>
         <many-to-one column="hall_id" name="hall"
                      not-null="true"
-                     class="Module.WeddingManagement.ApplicationModel.Hall" />
+                     class="Module.WeddingManagement.ApplicationModel.Hall" lazy="false"/>
         <set name="services" table="booking_service" inverse="false" lazy="false" fetch="select"  cascade="all">
             <key column="booking_id"/>
             <many-to-many column="service_id" class="Module.WeddingManagement.ApplicationModel.Service"/>
         </set>
         <property column="createdat" name="createdAt" type="date" />
+        <property column="weddingdate" name="weddingDate" type="date" />
         <property column="tables" name="tables" />
         <property column="shift" name="shift">
             <type name="org.hibernate.type.EnumType">

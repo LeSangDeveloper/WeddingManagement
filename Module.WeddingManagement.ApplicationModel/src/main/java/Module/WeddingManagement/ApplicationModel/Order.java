@@ -13,6 +13,12 @@ public class Order {
 
     }
 
+    public Order(Booking booking, Date createdAt, BigDecimal cash) {
+        this.booking = booking;
+        this.createdAt = createdAt;
+        this.cash = cash;
+    }
+
     public int getId() {
         return id;
     }

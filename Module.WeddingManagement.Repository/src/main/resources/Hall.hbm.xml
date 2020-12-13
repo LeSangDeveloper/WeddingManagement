@@ -14,5 +14,12 @@
             </type>
         </property>
         <property name="tables" column="tables" type="int"/>
+        <set name="bookings" table="booking"
+             inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="hall_id" not-null="true" />
+            </key>
+            <one-to-many class="Module.WeddingManagement.ApplicationModel.Booking" />
+        </set>
     </class>
 </hibernate-mapping>

@@ -1,6 +1,7 @@
 package Module.WeddingManagement.ApplicationModel;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 public class Hall extends AbstractModel {
 
@@ -10,6 +11,7 @@ public class Hall extends AbstractModel {
     private HallType type;
     private String note;
     private int tables;
+    private Set<Booking> bookings;
 
     public Hall() {
 
@@ -55,13 +57,19 @@ public class Hall extends AbstractModel {
         this.note = note;
     }
 
-
-
     public int getTables() {
         return tables;
     }
 
     public void setTables(int tables) {
         this.tables = tables;
+    }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
     }
 }

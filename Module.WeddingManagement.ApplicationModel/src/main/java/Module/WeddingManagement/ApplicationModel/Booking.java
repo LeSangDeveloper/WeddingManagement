@@ -14,6 +14,7 @@ public class Booking extends AbstractModel {
     private Hall hall;
     private Set<Service> services;
     private Date createdAt;
+    private Date weddingDate;
     private int tables;
     private ShiftType shift;
     private String note;
@@ -23,12 +24,34 @@ public class Booking extends AbstractModel {
 
     }
 
+    public Booking(Customer customer, Employee employee, Menu menu, Hall hall, Set<Service> services, Date createdAt, Date weddingDate, int tables, ShiftType shift, String note, BigDecimal price) {
+        this.customer = customer;
+        this.employee = employee;
+        this.menu = menu;
+        this.hall = hall;
+        this.services = services;
+        this.createdAt = createdAt;
+        this.weddingDate = weddingDate;
+        this.tables = tables;
+        this.shift = shift;
+        this.note = note;
+        this.price = price;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Date getWeddingDate() {
+        return weddingDate;
+    }
+
+    public void setWeddingDate(Date weddingDate) {
+        this.weddingDate = weddingDate;
     }
 
     public Customer getCustomer() {

@@ -24,6 +24,14 @@ public class DBContext {
         orders = new RepositoryGeneric<Order>(Order.class);
     }
 
+    public static RepositoryGeneric<Order> getOrders() {
+        return orders;
+    }
+
+    public static void setOrders(RepositoryGeneric<Order> orders) {
+        DBContext.orders = orders;
+    }
+
     public static RepositoryGeneric<Customer> getCustomers() {
         return customers;
     }
