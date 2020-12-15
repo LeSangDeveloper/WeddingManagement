@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+<h:head>
+    <title>Welcome</title>
+</h:head>
+<h:body>
+    <h:panelGrid columns="2"><h:graphicImage name="check.png" width="50" height="50" library="image" />
+        <h3>PHIẾU KHẢO SÁT</h3>
+    </h:panelGrid>
+    <h:form>
+    <h:panelGrid columns="2">
+        <h:outputLabel value="Họ tên" /><h:inputText id="txtFullName" value="#{surveyBean.fullName}"/>
+        <h:outputLabel value="Năm sinh" /><h:inputText id="txtDateOfBirth" value="#{surveyBean.dateOfBirth}" />
+        <h:outputLabel value="Giới tính" /><h:selectOneRadio id="rdoGender" value="#{surveyBean.gender}">
+        <f:selectItem itemValue="Nam" itemLabel="Nam" /><f:selectItem itemValue="Nữ" itemLabel="Nữ" />
+    </h:selectOneRadio>
+    </h:panelGrid>
+    <h:panelGrid>
+        <h:outputLabel value="Ngôn ngữ lập trình yêu thích?" />
+        <h:selectManyCheckbox id="chkFavoriteLanguages" value="#{surveyBean.favoriteLanguages}">
+            <f:selectItem itemValue="C/C++" />
+            <f:selectItem itemValue="Java" />
+            <f:selectItem itemValue="Python" />
+            <f:selectItem itemValue="Ruby" />
+            <f:selectItem itemValue="PHP" />
+        </h:selectManyCheckbox>
+    </h:panelGrid>
+    <h:panelGrid>
+        <h:outputLabel value="Tại sao bạn yêu thích các ngôn ngữđó?" />
+        <h:inputTextarea id="txtReason" rows="4" cols="80" value="#{surveyBean.reason}"/>
+    </h:panelGrid>
+    <h:panelGrid>
+        <h:commandButton value="Gui" style="background-color:blue;color:white" action="#{surveyBean.getResponse}"/>
+    </h:panelGrid>
+    <h:outputText escape="false"  value="#{surveyBean.response}" />
+    </h:form>
+</h:body>
+</html>
