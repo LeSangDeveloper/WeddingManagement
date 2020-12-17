@@ -1,0 +1,79 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+    Tip 2: you can also add an image using data-image tag-->
+    <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+            Trang Quản Lý
+        </a>
+    </div>
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="material-icons"> dasboard</i>
+                    <p>Test</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <h:form>
+                    <h:commandLink class="nav-link" action="dashboard">
+                        <i class="material-icons">dashboard</i>
+                        <p>Dashboard</p>
+                    </h:commandLink>
+                </h:form>
+            </li>
+            <li class="nav-item ">
+                <h:form>
+                    <h:commandLink class="nav-link" action="booking">
+                        <i class="material-icons">event</i>
+                        <p>Quản Lý Tiệc</p>
+                    </h:commandLink>
+                </h:form>
+            </li>
+            <li class="nav-item ">
+                <h:form>
+                    <h:commandLink class="nav-link" action="hall">
+                        <i class="material-icons">meeting_room</i>
+                        <p>Quản Lý Phòng - Sảnh</p>
+                    </h:commandLink>
+                </h:form>
+            </li>
+            <li class="nav-item ">
+                <h:form>
+                    <h:commandLink class="nav-link" action="menu">
+                        <i class="material-icons">menu_book</i>
+                        <p>Quản Lý Thực Đơn</p>
+                    </h:commandLink>
+                </h:form>
+            </li>
+            <li class="nav-item ">
+                <h:form>
+                    <h:commandLink class="nav-link" action="employee">
+                        <i class="material-icons">assignment_ind</i>
+                        <p>Quản Lý Nhân Viên</p>
+                    </h:commandLink>
+                </h:form>
+            </li>
+            <li class="nav-item ">
+                <h:form>
+                    <h:commandLink class="nav-link" action="service">
+                        <i class="material-icons">grade</i>
+                        <p>Quản Lý Dịch Vụ</p>
+                    </h:commandLink>
+                </h:form>
+            </li>
+            <li class="nav-item ">
+                <h:form>
+                    <h:commandLink class="nav-link" action="customer">
+                        <i class="material-icons">person</i>
+                        <p>Quản Lý Khách Hàng</p>
+                    </h:commandLink>
+                </h:form>
+            </li>
+            <!-- your sidebar here -->
+        </ul>
+    </div>
+</ui:composition>

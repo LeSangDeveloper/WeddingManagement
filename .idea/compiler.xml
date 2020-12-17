@@ -14,7 +14,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Module.WeddingManagement.Web" target="1.7" />
+      <module name="Module.WeddingManagement.Web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
