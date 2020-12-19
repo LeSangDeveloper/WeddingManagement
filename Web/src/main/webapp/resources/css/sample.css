@@ -1,0 +1,4 @@
+.sidebar[data-color="purple"] li.active > form > a{
+    background-color: #9c27b0;
+    margin: 0 15px;
+}
