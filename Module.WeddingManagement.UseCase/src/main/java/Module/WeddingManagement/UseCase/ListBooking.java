@@ -2,13 +2,13 @@ package Module.WeddingManagement.UseCase;
 
 import Module.WeddingManagement.ApplicationModel.Booking;
 import Module.WeddingManagement.ApplicationModel.ShiftType;
-import Module.WeddingManagement.Contract.UseCase.IListOuput;
+import Module.WeddingManagement.Contract.UseCase.IListOutput;
 import Module.WeddingManagement.Repository.DBContext;
 
 import java.util.Date;
 import java.util.List;
 
-public class ListBooking implements IListOuput<Booking> {
+public class ListBooking implements IListOutput<Booking> {
 
     private Date weddingDate;
     private ShiftType shift;

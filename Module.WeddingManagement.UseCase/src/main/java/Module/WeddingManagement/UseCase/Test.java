@@ -1,6 +1,8 @@
 package Module.WeddingManagement.UseCase;
 
 import Module.WeddingManagement.ApplicationModel.Booking;
+import Module.WeddingManagement.ApplicationModel.Food;
+import Module.WeddingManagement.ApplicationModel.Service;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -13,6 +15,16 @@ public class Test {
         ListBooking listBooking = new ListBooking();
         List<Booking> bookings = listBooking.GetList();
         System.out.println(bookings);
+
+        ListFood foods = new ListFood();
+        for (Food i : foods.GetList()) {
+            System.out.println(i);
+        }
+
+        ListService services = new ListService();
+        for (Service service : services.GetList()) {
+            System.out.println(service);
+        }
 
         GetReport getReport = new GetReport();
         getReport.setMonth(2);

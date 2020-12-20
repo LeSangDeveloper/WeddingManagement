@@ -4,7 +4,7 @@ import Module.WeddingManagement.ApplicationModel.Booking;
 import Module.WeddingManagement.ApplicationModel.Hall;
 import Module.WeddingManagement.ApplicationModel.HallType;
 import Module.WeddingManagement.ApplicationModel.ShiftType;
-import Module.WeddingManagement.Contract.UseCase.IListOuput;
+import Module.WeddingManagement.Contract.UseCase.IListOutput;
 import Module.WeddingManagement.Repository.DBContext;
 
 import java.math.BigDecimal;
@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-public class ListHall implements IListOuput<Hall> {
+public class ListHall implements IListOutput<Hall> {
 
     private Date weddingDate;
     private ShiftType weddingShift;

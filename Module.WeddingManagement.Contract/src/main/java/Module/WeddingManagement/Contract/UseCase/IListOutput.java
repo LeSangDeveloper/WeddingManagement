@@ -1,2 +1,7 @@
-package Module.WeddingManagement.Contract.UseCase;public interface IListOutput {
+package Module.WeddingManagement.Contract.UseCase;
+
+import java.util.List;
+
+public interface IListOutput<T> {
+    List<T> GetList();
 }

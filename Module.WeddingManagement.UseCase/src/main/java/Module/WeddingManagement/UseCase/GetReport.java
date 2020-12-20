@@ -1,15 +1,14 @@
 package Module.WeddingManagement.UseCase;
 
 import Module.WeddingManagement.ApplicationModel.Order;
-import Module.WeddingManagement.Contract.UseCase.IListOuput;
+import Module.WeddingManagement.Contract.UseCase.IListOutput;
 import Module.WeddingManagement.Repository.DBContext;
-import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.*;
 
-public class GetReport implements IListOuput<Order> {
+public class GetReport implements IListOutput<Order> {
 
     private List<Order> orders;
     private int quarter;
