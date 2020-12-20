@@ -26,6 +26,7 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+
     <!-- Faces Servlet Mapping -->
     <!-- All the requests/urls ending with .faces extension are redirected to the Faces Servlet -->
     <!-- Map these files with JSF -->

@@ -16,6 +16,9 @@ public class SurveyBean {
     private String otherLanguages;
     private String reason;
 
+    public SurveyBean(){
+        System.out.println("Calling SurveyBean");
+    }
 
     public String getResponse() {
         StringBuilder b = new StringBuilder();

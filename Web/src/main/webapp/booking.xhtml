@@ -1,19 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
     <title>Laydies and Gentle Man</title>
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <!-- Material Kit CSS -->
     <h:outputStylesheet library="css" name="material-dashboard.min.css"/>
 </h:head>
@@ -22,8 +26,46 @@
     <ui:composition template="templates/base.xhtml">
         <ui:param name="Title" value="Quản Lý Tiệc Cưới"></ui:param>
         <ui:param name="event" value="active"></ui:param>
-        <ui:define name="content">
+        <ui:define name="container">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <h:dataTable value="#{bookingBean.bookingList.GetList()}" var="booking"
+                                         styleClass="table table-hover"
+                                         headerClass="employeeTableHeader"
+                                         rowClasses="employeeTableOddRow,employeeTableEvenRow">
 
+                                <h:column>
+                                    <f:facet name="header">Tên Khách Hàng</f:facet>
+                                    #{booking.customer.name}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Tên Nhân Viên</f:facet>
+                                    #{booking.employee.fullName}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Sảnh</f:facet>
+                                    #{booking.hall.type}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Ngày tổ chức</f:facet>
+                                    #{booking.weddingDate}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Số bàn</f:facet>
+                                    #{booking.tables}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Thời gian tổ chức</f:facet>
+                                    #{booking.shift}
+                                </h:column>
+                            </h:dataTable>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>
 </h:body>

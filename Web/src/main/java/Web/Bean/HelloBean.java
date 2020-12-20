@@ -11,7 +11,11 @@ public class HelloBean {
 
     private String message = "Welcome to our Website";
 
+    public HelloBean() {
+    }
+
     public String getMessage() {
+        System.out.println("Kyo mat lon");
         return message;
     }
 }
