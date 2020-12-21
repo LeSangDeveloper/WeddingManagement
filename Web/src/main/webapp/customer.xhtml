@@ -3,7 +3,8 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
     <title>Khách Hàng</title>
     <!-- Required meta tags -->
@@ -22,6 +23,48 @@
     <ui:composition template="templates/base.xhtml">
         <ui:param name="Title" value="Quản Lý Khách Hàng"></ui:param>
         <ui:param name="customer" value="active"></ui:param>
+        <ui:define name="container">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-body">
+                        <div class="table-responsive">
+
+                            <h:dataTable value="#{bookingBean.bookingList.GetList()}" var="booking"
+                                         styleClass="table table-hover"
+                                         headerClass="employeeTableHeader"
+                                         rowClasses="employeeTableOddRow,employeeTableEvenRow">
+
+                                <h:column>
+                                    <f:facet name="header">Tên Khách Hàng</f:facet>
+                                    #{booking.customer.name}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Tên Nhân Viên</f:facet>
+                                    #{booking.employee.fullName}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Sảnh</f:facet>
+                                    #{booking.hall.type}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Ngày tổ chức</f:facet>
+                                    #{booking.weddingDate}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Số bàn</f:facet>
+                                    #{booking.tables}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Thời gian tổ chức</f:facet>
+                                    #{booking.shift}
+                                </h:column>
+                            </h:dataTable>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
     </ui:composition>
 </h:body>
 

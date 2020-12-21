@@ -3,7 +3,8 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Laydies and Gentle Man</title>
     <!-- Required meta tags -->
@@ -22,6 +23,40 @@
     <ui:composition template="templates/base.xhtml">
         <ui:param name="Title" value="Quản Lý Phòng - Sảnh"></ui:param>
         <ui:param name="hall" value="active"></ui:param>
+        <ui:define name="container">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            #{halls.FindOne()}
+<!--                            <p:dataTable value="#{halls.listHall}" var="hall"-->
+<!--                                         styleClass="table table-hover">-->
+<!--                                <p:column headerText="Tên Sảnh">-->
+<!--                                    <h:outputText value="#{hall.name}"/>-->
+<!--                                </p:column>-->
+<!--&lt;!&ndash;                                <h:column>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <f:facet name="header">Số bàn</f:facet>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    #{hall.tables}&ndash;&gt;-->
+<!--&lt;!&ndash;                                </h:column>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <h:column>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <f:facet name="header">Loại Sảnh</f:facet>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    #{hall.hallType}&ndash;&gt;-->
+<!--&lt;!&ndash;                                </h:column>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <h:column>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <f:facet name="header">Đơn Giá</f:facet>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    #{hall.price}&ndash;&gt;-->
+<!--&lt;!&ndash;                                </h:column>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <h:column>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <f:facet name="header">Ghi chú</f:facet>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    #{hall.note}&ndash;&gt;-->
+<!--&lt;!&ndash;                                </h:column>&ndash;&gt;-->
+<!--                            </p:dataTable>-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
     </ui:composition>
 </h:body>
 

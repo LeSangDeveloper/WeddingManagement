@@ -5,8 +5,7 @@ import javax.inject.Named;
 import java.io.Serializable;
 
 @ManagedBean
-@Named(value = "Menu")
 @RequestScoped
-public class MenuBean implements Serializable {
+public class MenuBean {
 
 }

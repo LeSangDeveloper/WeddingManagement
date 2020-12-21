@@ -2,6 +2,7 @@ package Module.WeddingManagement.UseCase;
 
 import Module.WeddingManagement.ApplicationModel.Booking;
 import Module.WeddingManagement.ApplicationModel.Food;
+import Module.WeddingManagement.ApplicationModel.Hall;
 import Module.WeddingManagement.ApplicationModel.Service;
 
 import java.math.BigDecimal;
@@ -24,6 +25,11 @@ public class Test {
         ListService services = new ListService();
         for (Service service : services.GetList()) {
             System.out.println(service);
+        }
+
+        ListHall halls = new ListHall();
+        for(Hall hall : halls.GetList()){
+            System.out.println(hall);
         }
 
         GetReport getReport = new GetReport();

@@ -65,13 +65,14 @@ public class ListHall implements IListOutput<Hall> {
 
         BigDecimal decimal0 = new BigDecimal(0);
 
-        if (fromPrice.doubleValue() >= 0 && toPrice.doubleValue() >= fromPrice.doubleValue()) {
-            for (Hall hall : halls) {
-                if (hall.getPrice().doubleValue() <= toPrice.doubleValue() && hall.getPrice().doubleValue() >= fromPrice.doubleValue()) {
-                    halls.remove(hall);
-                }
-            }
-        }
+        //Điều kiện lọc
+//        if (fromPrice.doubleValue() >= 0 && toPrice.doubleValue() >= fromPrice.doubleValue()) {
+//            for (Hall hall : halls) {
+//                if (hall.getPrice().doubleValue() <= toPrice.doubleValue() && hall.getPrice().doubleValue() >= fromPrice.doubleValue()) {
+//                    halls.remove(hall);
+//                }
+//            }
+//        }
 
         return halls;
     }
