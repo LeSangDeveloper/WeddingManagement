@@ -28,30 +28,24 @@
                 <div class="card card-plain">
                     <div class="card-body">
                         <div class="table-responsive">
-                            #{halls.FindOne()}
-<!--                            <p:dataTable value="#{halls.listHall}" var="hall"-->
-<!--                                         styleClass="table table-hover">-->
-<!--                                <p:column headerText="Tên Sảnh">-->
-<!--                                    <h:outputText value="#{hall.name}"/>-->
-<!--                                </p:column>-->
-<!--&lt;!&ndash;                                <h:column>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <f:facet name="header">Số bàn</f:facet>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    #{hall.tables}&ndash;&gt;-->
-<!--&lt;!&ndash;                                </h:column>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <h:column>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <f:facet name="header">Loại Sảnh</f:facet>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    #{hall.hallType}&ndash;&gt;-->
-<!--&lt;!&ndash;                                </h:column>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <h:column>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <f:facet name="header">Đơn Giá</f:facet>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    #{hall.price}&ndash;&gt;-->
-<!--&lt;!&ndash;                                </h:column>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <h:column>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <f:facet name="header">Ghi chú</f:facet>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    #{hall.note}&ndash;&gt;-->
-<!--&lt;!&ndash;                                </h:column>&ndash;&gt;-->
-<!--                            </p:dataTable>-->
-
+                            <p:dataTable value="#{halls.listHall}" var="hall"
+                                         styleClass="table table-hover">
+                                <p:column headerText="Tên Sảnh">
+                                    <h:outputText value="#{hall.name}"/>
+                                </p:column>
+                                <p:column headerText="Số bàn">
+                                    <h:outputText value="#{hall.tables}"/>
+                                </p:column>
+                                <p:column headerText="Loại Sảnh">
+                                    <h:outputText value="#{hall.type}"/>
+                                </p:column>
+                                <p:column headerText="Đơn giá">
+                                    <h:outputText value="#{hall.price}"/>
+                                </p:column>
+                                <p:column headerText="Ghi chú">
+                                    <h:outputText value="#{hall.note}"/>
+                                </p:column>
+                            </p:dataTable>
                         </div>
                     </div>
                 </div>
