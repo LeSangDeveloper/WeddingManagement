@@ -27,7 +27,7 @@ public class ListBooking implements IListOutput<Booking> {
         List<Booking> bookings = DBContext.getBookings().FindAll();
         if (weddingDate != null) {
             for (Booking booking : bookings) {
-                if (booking.getWeddingDate() == weddingDate) {
+                if (booking.getWeddingDate() != weddingDate) {
                     bookings.remove(booking);
                 }
             }
@@ -35,7 +35,7 @@ public class ListBooking implements IListOutput<Booking> {
 
         if (shift != null) {
             for (Booking booking : bookings) {
-                if (booking.getShift() == shift) {
+                if (booking.getShift() != shift) {
                     bookings.remove(booking);
                 }
             }
