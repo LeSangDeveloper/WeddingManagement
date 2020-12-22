@@ -28,22 +28,22 @@
                 <div class="card card-plain">
                     <div class="card-body">
                         <div class="table-responsive">
-                            #{services.findOne}
-<!--                            <p:dataTable value="#{serviceBean.listService}" var="service"-->
-<!--                                         styleClass="table table-hover">-->
-<!--                                <p:column headerText="Mã dịch vụ">-->
-<!--                                    <h:outputText value="#{service.id}"/>-->
-<!--                                </p:column>-->
-<!--                                <p:column headerText="Đơn giá">-->
-<!--                                    <h:outputText value="#{service.price}"/>-->
-<!--                                </p:column>-->
-<!--                                <p:column headerText="Loại">-->
-<!--                                    <h:outputText value="#{service.type}"/>-->
-<!--                                </p:column>-->
-<!--                                <p:column headerText="Ghi chú">-->
-<!--                                    <h:outputText value="#{service.note}"/>-->
-<!--                                </p:column>-->
-<!--                            </p:dataTable>-->
+<!--                            #{services.findOne}-->
+                            <p:dataTable value="#{services.listService}" var="svc"
+                                         styleClass="table table-hover">
+                                <p:column headerText="Mã dịch vụ">
+                                    <h:outputText value="#{svc.id}"/>
+                                </p:column>
+                                <p:column headerText="Đơn giá">
+                                    <h:outputText value="#{svc.price}"/>
+                                </p:column>
+                                <p:column headerText="Loại">
+                                    <h:outputText value="#{svc.type}"/>
+                                </p:column>
+                                <p:column headerText="Ghi chú">
+                                    <h:outputText value="#{svc.note}"/>
+                                </p:column>
+                            </p:dataTable>
                         </div>
                     </div>
                 </div>

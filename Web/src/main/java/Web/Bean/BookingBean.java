@@ -18,6 +18,10 @@ public class BookingBean{
         System.out.println("BookingBean đc gọi " + bookingList);
     }
 
+    public void remove(Booking booking){
+
+    }
+
     public ListBooking getBookingList() {
         return bookingList;
     }

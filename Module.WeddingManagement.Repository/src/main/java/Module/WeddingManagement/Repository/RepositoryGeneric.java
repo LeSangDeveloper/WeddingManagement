@@ -60,6 +60,21 @@ public class RepositoryGeneric<T> implements IRepository<T> {
     }
 
     @Override
+    public Boolean Delete(T entity){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+            try {
+                session.getTransaction().begin();
+                session.delete(entity);
+                session.getTransaction().commit();
+            }catch (Exception exception){
+                session.getTransaction().rollback();
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
     public void Persist(T t) {
 
     }

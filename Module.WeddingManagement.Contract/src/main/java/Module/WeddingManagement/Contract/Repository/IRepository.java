@@ -11,5 +11,7 @@ public interface IRepository<T> {
 
     T Update(int id, T entity);
 
+    Boolean Delete(T entity);
+
     void Persist(T t);
 }
