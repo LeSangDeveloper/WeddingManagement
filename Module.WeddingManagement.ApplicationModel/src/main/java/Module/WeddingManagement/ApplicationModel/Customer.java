@@ -7,6 +7,16 @@ public class Customer extends AbstractModel {
     private String phone;
     private String address;
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+
     public Customer()
     {
         new Customer(0, "", "", "");

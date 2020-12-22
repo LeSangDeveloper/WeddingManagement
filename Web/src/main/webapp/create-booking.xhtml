@@ -5,7 +5,7 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
     <title>Laydies and Gentle Man</title>
     <!-- Required meta tags -->
@@ -25,17 +25,58 @@
 <h:body>
     <ui:composition template="templates/base.xhtml">
         <ui:param name="Title" value="Đặt bàn"></ui:param>
-        <ui:param name="create-booking" value="active"></ui:param>
+        <ui:param name="createbooking" value="active"></ui:param>
         <ui:define name="container">
-            <h1>Đặt bàn</h1>
+            <h1 class="text-center">Đặt bàn</h1>
             <h:form id="form-createBooking">
-                <p:panelGrid columns="2">
-                    <h:outputLabel for="customer"> Khách hàng</h:outputLabel>
-                    <h:selectOneMenu id="customer" value="#{createBookingBean.customer}"  style="width: 150px">
-                        <f:selectItems value="#{createBookingBean.listCustomer}" var="c" itemLabel="#{c.name}"/>
+                <div class="form-group">
+                    <h:outputLabel styleClass="" value="Tên Khách hàng"/>
+                    <h:selectOneMenu styleClass="form-control" id="cbxCustomer">
+                        <f:selectItems var="cus" value="#{createBookingBean.listCustomer}"
+                                       itemLabel="#{cus.name}"
+                                       itemValue="#{cus}"/>
                     </h:selectOneMenu>
-                </p:panelGrid>
-                <p:separator />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel styleClass="" value="Tên Nhân Viên"/>
+                    <h:selectOneMenu styleClass="form-control" id="cbxEmployee">
+                        <f:selectItems var="emp" value="#{createBookingBean.listEmployees}"
+                                       itemLabel="#{emp.fullName}"
+                                       itemValue="#{emp}"/>
+                    </h:selectOneMenu>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel styleClass="" value="Loại Sảnh"/>
+                    <h:selectOneMenu styleClass="form-control" id="cbxHall">
+                        <f:selectItems var="hll" value="#{createBookingBean.listHall}"
+                                       itemLabel="#{hll.type}"
+                                       itemValue="#{hll}"/>
+                    </h:selectOneMenu>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel styleClass="" value="Món ăn cho menu"/>
+                    <h:selectManyListbox styleClass="form-control" id="cbxMenu">
+                        <f:selectItems var="food" value="#{createBookingBean.listFood}"
+                                       itemValue="#{food}"
+                                       itemLabel="#{food.name}"/>
+                    </h:selectManyListbox>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel value="Thời điểm tổ chức"/>
+                    <h:selectOneMenu styleClass="form-control" id="cbxShiftType">
+                        <f:selectItem itemLabel="Buổi chiều"
+                                       itemValue="Afternoon"/>
+                        <f:selectItem itemLabel="Buổi tối"
+                                      itemValue="Evening"/>
+                    </h:selectOneMenu>
+                </div>
+                <div class="form-group">
+
+                    <h:commandButton value="Đặt bàn" styleClass="btn btn-danger">
+
+                    </h:commandButton>
+                </div>
+
             </h:form>
         </ui:define>
     </ui:composition>
