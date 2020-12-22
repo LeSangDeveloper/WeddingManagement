@@ -22,28 +22,28 @@
 <h:body>
     <ui:composition template="templates/base.xhtml">
         <ui:param name="Title" value="Quản Lý Phòng - Sảnh"></ui:param>
-        <ui:param name="halls 's info" value="active"></ui:param>
+        <ui:param name="hall" value="active"></ui:param>
         <ui:define name="container">
             <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <p:dataTable value="#{halls.listHall}" var="hall"
+                            <p:dataTable value="#{halls.listHall}" var="hll"
                                          styleClass="table table-hover">
                                 <p:column headerText="Tên Sảnh">
-                                    <h:outputText value="#{hall.name}"/>
+                                    <h:outputText value="#{hll.name}"/>
                                 </p:column>
                                 <p:column headerText="Số bàn">
-                                    <h:outputText value="#{hall.tables}"/>
+                                    <h:outputText value="#{hll.tables}"/>
                                 </p:column>
                                 <p:column headerText="Loại Sảnh">
-                                    <h:outputText value="#{hall.type}"/>
+                                    <h:outputText value="#{hll.type}"/>
                                 </p:column>
                                 <p:column headerText="Đơn giá">
-                                    <h:outputText value="#{hall.price}"/>
+                                    <h:outputText value="#{hll.price}"/>
                                 </p:column>
                                 <p:column headerText="Ghi chú">
-                                    <h:outputText value="#{hall.note}"/>
+                                    <h:outputText value="#{hll.note}"/>
                                 </p:column>
                             </p:dataTable>
                         </div>

@@ -1,9 +1,7 @@
 package Module.WeddingManagement.UseCase;
 
-import Module.WeddingManagement.ApplicationModel.Booking;
-import Module.WeddingManagement.ApplicationModel.Food;
-import Module.WeddingManagement.ApplicationModel.Hall;
-import Module.WeddingManagement.ApplicationModel.Service;
+import Module.WeddingManagement.ApplicationModel.*;
+import Module.WeddingManagement.Repository.DBContext;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -13,31 +11,38 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        ListBooking listBooking = new ListBooking();
-        List<Booking> bookings = listBooking.GetList();
-        System.out.println(bookings);
+//        ListBooking listBooking = new ListBooking();
+//        List<Booking> bookings = listBooking.GetList();
+//        List<Order> listOrders = (new ListOrder()).GetList();
+//        Booking booking = DBContext.getBookings().Find(3);
+//        CreateOrder createOrder = new CreateOrder(new Date(),booking,new BigDecimal(1000000));
+//        createOrder.Create();
 
-        ListFood foods = new ListFood();
-        for (Food i : foods.GetList()) {
-            System.out.println(i);
-        }
-
-        ListService services = new ListService();
-        for (Service service : services.GetList()) {
-            System.out.println(service);
-        }
-
-        ListHall halls = new ListHall();
-        for(Hall hall : halls.GetList()){
-            System.out.println(hall);
-        }
-
-        GetReport getReport = new GetReport();
-        getReport.setMonth(2);
-        getReport.setYear(2012);
-        getReport.setQuarter(2);
-        List<BigDecimal> cashes = getReport.GetReportByQuater();
-        System.out.println(cashes);
+        List<Customer> listctm = (new ListCustomer()).GetList();
+        System.out.println(listctm);
+//        System.out.println(bookings);
+//
+//        ListFood foods = new ListFood();
+//        for (Food i : foods.GetList()) {
+//            System.out.println(i);
+//        }
+//
+//        ListService services = new ListService();
+//        for (Service service : services.GetList()) {
+//            System.out.println(service);
+//        }
+//
+//        ListHall halls = new ListHall();
+//        for(Hall hall : halls.GetList()){
+//            System.out.println(hall);
+//        }
+//
+//        GetReport getReport = new GetReport();
+//        getReport.setMonth(2);
+//        getReport.setYear(2012);
+//        getReport.setQuarter(2);
+//        List<BigDecimal> cashes = getReport.GetReportByQuater();
+//        System.out.println(cashes);
 
     }
 

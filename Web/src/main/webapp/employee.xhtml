@@ -23,33 +23,33 @@
     <ui:composition template="templates/base.xhtml">
         <ui:param name="Title" value="Quản Lý Nhân Viên"></ui:param>
         <ui:param name="employee" value="active"></ui:param>
-        <ui:define name="content">
-            <div class="col-md-12">
-                <div class="card card-plain">
-                    <div class="card-body">
-                        <h:commandButton ac></h:commandButton>
-                        <div class="table-responsive">
-                            <!--                            #{services.findOne}-->
-                            <p:dataTable value="#{services.listService}" var="svc"
-                                         styleClass="table table-hover">
-                                <p:column headerText="Mã dịch vụ">
-                                    <h:outputText value="#{svc.id}"/>
-                                </p:column>
-                                <p:column headerText="Đơn giá">
-                                    <h:outputText value="#{svc.price}"/>
-                                </p:column>
-                                <p:column headerText="Loại">
-                                    <h:outputText value="#{svc.type}"/>
-                                </p:column>
-                                <p:column headerText="Ghi chú">
-                                    <h:outputText value="#{svc.note}"/>
-                                </p:column>
-                            </p:dataTable>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ui:define>
+<!--        <ui:define name="content">-->
+<!--            <div class="col-md-12">-->
+<!--                <div class="card card-plain">-->
+<!--                    <div class="card-body">-->
+<!--                        <h:commandButton></h:commandButton>-->
+<!--                        <div class="table-responsive">-->
+<!--                            &lt;!&ndash;                            #{services.findOne}&ndash;&gt;-->
+<!--                            <p:dataTable value="#{services.listService}" var="svc"-->
+<!--                                         styleClass="table table-hover">-->
+<!--                                <p:column headerText="Mã dịch vụ">-->
+<!--                                    <h:outputText value="#{svc.id}"/>-->
+<!--                                </p:column>-->
+<!--                                <p:column headerText="Đơn giá">-->
+<!--                                    <h:outputText value="#{svc.price}"/>-->
+<!--                                </p:column>-->
+<!--                                <p:column headerText="Loại">-->
+<!--                                    <h:outputText value="#{svc.type}"/>-->
+<!--                                </p:column>-->
+<!--                                <p:column headerText="Ghi chú">-->
+<!--                                    <h:outputText value="#{svc.note}"/>-->
+<!--                                </p:column>-->
+<!--                            </p:dataTable>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </ui:define>-->
     </ui:composition>
 </h:body>
 

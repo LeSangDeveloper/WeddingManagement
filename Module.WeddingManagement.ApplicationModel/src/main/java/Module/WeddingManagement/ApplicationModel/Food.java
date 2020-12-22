@@ -15,7 +15,7 @@ public class Food extends AbstractModel {
 
     }
 
-    public Food(int id, String name, BigDecimal price, String note, FoodType type) {
+    public Food( String name, BigDecimal price, String note, FoodType type) {
         this.name = name;
         this.price = price;
         this.note = note;

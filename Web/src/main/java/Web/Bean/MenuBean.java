@@ -14,7 +14,7 @@ public class MenuBean {
     private List<Menu> listMenu ;
 
     public MenuBean(){
-        listMenu = (new ListMenu()).GetList();
+        //listMenu = (new ListMenu()).GetList();
         System.out.println("MenuBean called");
     }
 

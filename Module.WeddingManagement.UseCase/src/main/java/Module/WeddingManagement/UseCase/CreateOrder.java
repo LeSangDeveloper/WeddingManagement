@@ -45,7 +45,8 @@ public class CreateOrder implements ICreate<Order> {
         else {
             cash = booking.getPrice();
         }
-        Order entity = new Order(booking, createAt, cash);
+        System.out.println("CreateOrder" + cash);
+        Order entity = new Order(booking, createAt, new BigDecimal(1000));
         DBContext.getOrders().Add(entity);
         return entity;
     }
