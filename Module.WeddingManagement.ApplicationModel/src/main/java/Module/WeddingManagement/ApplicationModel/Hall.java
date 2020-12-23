@@ -1,6 +1,7 @@
 package Module.WeddingManagement.ApplicationModel;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 import java.util.Set;
 
 public class Hall extends AbstractModel {
@@ -15,6 +16,25 @@ public class Hall extends AbstractModel {
 
     public Hall() {
 
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(this.id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Hall hall = (Hall) o;
+        return id == hall.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
     }
 
     public int getId() {

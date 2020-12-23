@@ -1,6 +1,7 @@
 package Module.WeddingManagement.ApplicationModel;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Service extends AbstractModel {
 
@@ -12,6 +13,25 @@ public class Service extends AbstractModel {
     public Service()
     {
 
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(this.id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Service service = (Service) o;
+        return id == service.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
     }
 
     public Service(int id, BigDecimal price, String note, String type) {

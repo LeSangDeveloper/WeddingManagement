@@ -1,5 +1,7 @@
 package Module.WeddingManagement.ApplicationModel;
 
+import java.util.Objects;
+
 public class Customer extends AbstractModel {
 
     private int id;
@@ -9,12 +11,21 @@ public class Customer extends AbstractModel {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        return String.valueOf(this.id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Customer customer = (Customer) o;
+        return id == customer.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
     }
 
     public Customer()

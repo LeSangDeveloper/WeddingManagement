@@ -1,6 +1,7 @@
 package Module.WeddingManagement.ApplicationModel;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 import java.util.Set;
 
 public class Food extends AbstractModel {
@@ -15,7 +16,26 @@ public class Food extends AbstractModel {
 
     }
 
-    public Food( String name, BigDecimal price, String note, FoodType type) {
+    @Override
+    public String toString() {
+        return String.valueOf(this.id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Food food = (Food) o;
+        return id == food.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
+    }
+
+    public Food(String name, BigDecimal price, String note, FoodType type) {
         this.name = name;
         this.price = price;
         this.note = note;

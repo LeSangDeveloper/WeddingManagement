@@ -8,11 +8,11 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-@FacesConverter("EmployeeConverter")
-public class EmployeeConverter implements Converter {
+@FacesConverter("ServiceConverter")
+public class ServiceConverter implements Converter {
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        return DBContext.getEmployees().Find(Integer.parseInt(value));
+        return DBContext.getServices().Find(Integer.parseInt(value));
     }
 
     @Override
