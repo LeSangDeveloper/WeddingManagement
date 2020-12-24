@@ -2,11 +2,11 @@ package Web.Bean;
 
 
 import Module.WeddingManagement.ApplicationModel.*;
+import Module.WeddingManagement.Repository.DBContext;
 import Module.WeddingManagement.UseCase.*;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import java.awt.print.Book;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -22,6 +22,8 @@ public class CreateBookingBean {
     private Set<Service> srvs;
     private Set<Food> fds;
     private Date weddingDate;
+
+    private String stringShiftType;
 
     private List<Customer> listCustomer;
     private List<Employee> listEmployees;
@@ -82,6 +84,12 @@ public class CreateBookingBean {
     }
 
     public String addBooking(){
+        System.out.println("add Booking");
+        if (stringShiftType == "Evening") {
+            this.shiftType = ShiftType.Evening;
+        }
+        else
+            this.shiftType = ShiftType.Afternoon;
         Booking booking = new Booking();
         booking.setCustomer(this.customer);
         booking.setEmployee(this.employee);
@@ -92,7 +100,15 @@ public class CreateBookingBean {
         Menu menu = new Menu();
         menu.setFoods(this.fds);
         booking.setMenu(menu);
-        return "Fail";
+        booking.setShift(this.shiftType);
+        booking.setTables(50);
+        booking.setNote("ABC");
+        CreateBooking createBooking = new CreateBooking(booking);
+        if (DBContext.getBookings().Add(booking) == null) {
+            return "create-booking";
+        }
+        else
+            return "booking?faces-redirect=true";
     }
 
     public Set<Service> getSrvs() {
@@ -117,15 +133,6 @@ public class CreateBookingBean {
 
     public List<Customer> getListCustomer() {
         return listCustomer;
-    }
-
-    public static void main(String[] args) {
-        List<Employee> emps = (new ListEmployee()).GetList();
-        List<Customer> cus = (new ListCustomer()).GetList();
-        System.out.println(emps);
-        System.out.println(cus);
-
-
     }
 
     public List<Employee> getListEmployees() {
@@ -162,5 +169,17 @@ public class CreateBookingBean {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public void setShiftType(ShiftType shiftType) {
+        this.shiftType = shiftType;
+    }
+
+    public String getStringShiftType() {
+        return stringShiftType;
+    }
+
+    public void setStringShiftType(String stringShiftType) {
+        this.stringShiftType = stringShiftType;
     }
 }

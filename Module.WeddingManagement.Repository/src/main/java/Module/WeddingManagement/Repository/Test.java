@@ -29,10 +29,15 @@ public class Test {
 //        } catch (InstantiationException e) {
 //            e.printStackTrace();
 //        }
-        Food food = new Food("A",new BigDecimal(10000),"a",FoodType.Salad);
-        Booking booking = DBContext.getBookings().Find(3);
-        Order order = new Order(booking,new Date(),new BigDecimal(100000));
-        DBContext.getOrders().Add(order);
+
+//        Booking booking = DBContext.getBookings().Find(3);
+//        Order order = new Order(booking,new Date(),new BigDecimal(100000));
+//        DBContext.getOrders().Add(order);
+        try (Session session = HibernateUtil.getSessionFactory().openSession())
+        {
+            Food food = new Food("A",new BigDecimal(10000),"a",FoodType.Salad);
+            System.out.println(session.save(food).getClass().getName());
+        }
 //        List<Hall> entities = DBContext.getHalls().FindAll();
 //        for (Hall entity : entities) {
 //            System.out.println("------------------------------------------------ HALL ----------------------------------------------");

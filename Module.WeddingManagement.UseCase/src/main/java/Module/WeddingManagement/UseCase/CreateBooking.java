@@ -63,10 +63,11 @@ public class CreateBooking implements ICreate<Booking> {
 
     @Override
     public Booking Create() {
-
-        if (validate()) {
+        if (true) {
+            System.out.println("Test create");
             Booking entity = new Booking(this.customer, this.employee, this.menu, this.hall, this.services, this.createdAt, this.weddingDate, this.tables, this.shift, this.note, this.price);
             DBContext.getBookings().Add(entity);
+            return entity;
         }
         return null;
     }

@@ -42,9 +42,13 @@ public class RepositoryGeneric<T> implements IRepository<T> {
     @Override
     public T Add(T entity) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            System.out.println("save");
             session.getTransaction().begin();
             session.save(entity);
             session.getTransaction().commit();
+        }
+        catch (Exception ex) {
+            System.out.println(ex);
         }
         return entity;
     }
