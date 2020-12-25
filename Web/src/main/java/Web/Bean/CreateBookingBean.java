@@ -3,17 +3,25 @@ package Web.Bean;
 
 import Module.WeddingManagement.ApplicationModel.*;
 import Module.WeddingManagement.Repository.DBContext;
+import Module.WeddingManagement.Repository.HibernateUtil;
 import Module.WeddingManagement.UseCase.*;
+import org.hibernate.Session;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 @ManagedBean
+@Named(value = "createBookingBean")
 @RequestScoped
-public class CreateBookingBean {
+public class CreateBookingBean implements Serializable {
     private Booking booking;
     private ShiftType shiftType;
     private Customer customer;
@@ -22,6 +30,34 @@ public class CreateBookingBean {
     private Set<Service> srvs;
     private Set<Food> fds;
     private Date weddingDate;
+
+    private int customerId;
+    private int employeeId;
+    private int hallId;
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public int getHallId() {
+        return hallId;
+    }
+
+    public void setHallId(int hallId) {
+        this.hallId = hallId;
+    }
 
     private String stringShiftType;
 
@@ -83,8 +119,10 @@ public class CreateBookingBean {
         listService = (new ListService()).GetList();
     }
 
-    public String addBooking(){
-        System.out.println("add Booking");
+    public String submit(){
+        System.out.printf("Hall %d\n",hallId);
+        System.out.println(this.weddingDate);
+        //System.out.println("add Booking");
         if (stringShiftType == "Evening") {
             this.shiftType = ShiftType.Evening;
         }
@@ -92,23 +130,48 @@ public class CreateBookingBean {
             this.shiftType = ShiftType.Afternoon;
         Booking booking = new Booking();
         booking.setCustomer(this.customer);
+        System.out.println("Test customer " + this.customer);
         booking.setEmployee(this.employee);
-        booking.setServices(this.srvs);
+        System.out.println(this.employee);
+//        booking.setServices(this.srvs);
+//        System.out.println(this.srvs);
         booking.setHall(this.hll);
+        System.out.println(this.hll);
         booking.setWeddingDate(this.weddingDate);
         booking.setCreatedAt(new Date());
-        Menu menu = new Menu();
-        menu.setFoods(this.fds);
+        Menu menu = CreateMenu();
+        System.out.println(this.fds);
         booking.setMenu(menu);
+        System.out.println(menu);
         booking.setShift(this.shiftType);
         booking.setTables(50);
         booking.setNote("ABC");
+        booking.setPrice(new BigDecimal(2000000));
         CreateBooking createBooking = new CreateBooking(booking);
-        if (DBContext.getBookings().Add(booking) == null) {
-            return "create-booking";
+        //createBooking.Create();
+        DBContext.getBookings().Add(booking);
+        return "booking?faces-redirect=true";
+    }
+
+    public Menu CreateMenu()
+    {
+        try (Session session = HibernateUtil.getSessionFactory().openSession())
+        {
+            session.getTransaction().begin();
+            Menu menu = new Menu();
+            menu.setCreatedAt(new Date());
+            session.persist(menu);
+            session.getTransaction().commit();
         }
-        else
-            return "booking?faces-redirect=true";
+        List<Menu> menus = DBContext.getMenus().FindAll();
+        Menu menu = menus.get(menus.size() - 1);
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.getTransaction().begin();
+            menu.setFoods(fds);
+            session.saveOrUpdate(menu);
+            session.getTransaction().commit();
+        }
+        return menu;
     }
 
     public Set<Service> getSrvs() {

@@ -47,7 +47,7 @@ public class BookingBean{
     public BookingBean(){
         bookingList = (new ListBooking()).GetList();
         listOrder = (new ListOrder()).GetList();
-        System.out.println("BookingBean đc gọi " + bookingList +"\n" + listOrder);
+        //System.out.println("BookingBean đc gọi " + bookingList +"\n" + listOrder);
     }
 
     public Booking checkBooking(Booking booking){

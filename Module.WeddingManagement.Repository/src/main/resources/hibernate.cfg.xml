@@ -7,6 +7,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/weddingmanagement</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">12345678</property>
+        <property name="hibernate.show_sql">true</property>
 
         <mapping resource="Customer.hbm.xml" />
         <mapping resource="Employee.hbm.xml" />

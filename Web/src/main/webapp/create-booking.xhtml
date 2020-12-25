@@ -30,10 +30,11 @@
         <ui:param name="createbooking" value="active"></ui:param>
         <ui:define name="container">
             <h1 class="text-center">Đặt bàn</h1>
-            <h:form id="form-createBooking">
+
+            <h:form >
                 <div class="form-group">
                     <h:outputLabel styleClass="" value="Tên Khách hàng"/>
-                    <h:selectOneMenu styleClass="form-control" id="cbxCustomer" value="#{createBookingBean.customer}"
+                    <h:selectOneMenu styleClass="form-control" id="cbxCustomer" value="#{createBookingBean.customerId}"
                                      converter="CustomerConverter">
                         <f:selectItems var="cus" value="#{createBookingBean.listCustomer}"
                                        itemLabel="#{cus.name}"
@@ -42,7 +43,7 @@
                 </div>
                 <div class="form-group">
                     <h:outputLabel styleClass="" value="Tên Nhân Viên"/>
-                    <h:selectOneMenu styleClass="form-control" id="cbxEmployee" value="#{createBookingBean.employee}"
+                    <h:selectOneMenu styleClass="form-control" id="cbxEmployee" value="#{createBookingBean.employeeId}"
                                      converter="EmployeeConverter">
                         <f:selectItems var="emp" value="#{createBookingBean.listEmployees}"
                                        itemLabel="#{emp.fullName}"
@@ -51,7 +52,7 @@
                 </div>
                 <div class="form-group">
                     <h:outputLabel styleClass="" value="Loại Sảnh"/>
-                    <h:selectOneMenu styleClass="form-control" id="cbxHall" value="#{createBookingBean.hll}"
+                    <h:selectOneMenu styleClass="form-control" id="cbxHall" value="#{createBookingBean.hallId}"
                                      converter="HallConverter">
                         <f:selectItems var="hll" value="#{createBookingBean.listHall}"
                                        itemLabel="#{hll.type}"
@@ -88,14 +89,15 @@
                 <div class="form-group">
                     <h:outputLabel value="Ngày tổ chức"/>
                     <h:inputText styleClass="form-control" value="#{createBookingBean.weddingDate}">
-                        <f:convertDateTime pattern="dd/mm/yyyy"/>
+                        <f:convertDateTime pattern="dd/mm/yyy"/>
                     </h:inputText>
                 </div>
                 <div class="form-group">
-                    <h:commandButton id="submit-button" value="Đặt bàn"
-                                     action="#{createBookingBean.addBooking()}"
-                                     styleClass="btn btn-danger">
-                    </h:commandButton>
+                    <h:commandButton id="submit-button" value="Đặt bàn" update="@form"
+                                     action="#{createBookingBean.submit()}"
+                                     immediate="true"
+                                     styleClass="btn btn-danger" />
+
                 </div>
             </h:form>
         </ui:define>

@@ -19,7 +19,7 @@ import java.util.List;
 
 @ManagedBean
 @RequestScoped
-public class ReportBean {
+public class ReportMonthBean {
     private BarChartModel barModel;
 
     @PostConstruct
@@ -29,7 +29,7 @@ public class ReportBean {
         BarChartDataSet dataSet = new BarChartDataSet();
         dataSet.setLabel("Tổng thanh toán");
 
-        List<BigDecimal> listData = (new GetReport(4,1,2020)).GetReportByMonth();
+        List<BigDecimal> listData = (new GetReport(4,1,2020)).GetReportByYear();
         List<Number> numberData = new ArrayList<>();
         for(BigDecimal big : listData)
         {
@@ -40,14 +40,14 @@ public class ReportBean {
         dataSet.setData(numberData);
         data.addChartDataSet(dataSet);
         List<String> labels = new ArrayList<>();
+//        for(int i = 1; i <= numberData.size(); i++){
+//            labels.add("ngày "+i);
+//        }
         List<String> color = new ArrayList<>();
         for(int i = 1; i <= numberData.size(); i++){
-            labels.add("ngày "+i);
+            labels.add("Tháng "+i);
             color.add("rgba(156, 39, 176,1)");
         }
-//        for(int i = 1; i <= numberData.size(); i++){
-//            labels.add("Tháng "+i);
-//        }
 
         dataSet.setBackgroundColor(color);
 
@@ -55,7 +55,7 @@ public class ReportBean {
 
         Title title = new Title();
         title.setDisplay(true);
-        title.setText("Thống kê doanh thu tháng 1 - 2020");
+        title.setText("Thống kê doanh thu năm 2020");
         options.setTitle(title);
 
         data.setLabels(labels);
